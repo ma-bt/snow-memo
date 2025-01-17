@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+
+#root {
+  width: 100%;
+  height: 100vh;
+  font-size: 14px;
+
+  h1 {
+    font-size: 38px;
+    line-height: 38px;
+    font-weight: 500;
+    margin: 0;
+    // font-family: ;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  h4 {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  h5 {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  h6 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+}
+
+
+
+
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "sans-serif";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+@layer base {
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+    --text-headings: #333535;
+    --text-body: #191A1A;
+    --text-disabled: #EDEFF2;
+
+    --button-default: #1A5D89;
+    --button-hover: #1A4F72;
+    --button-focused: #1A4F72;
+    --button-disabled: #C4E1F3;
+
+    --border-layout: #A2A6A6;
+    --border-active: #00ABF1;
+
+    --input-header: #414444;
+    --input-filled: #333535;
+    --input-empty: #636968;
+    --input-disabled-fill: #F6F7F7;
+    --input-disabled: #636968;
+    --input-error: #DB004D;
+
+    --icon-default: #999FB5;
+
+
+    --check-border: #2A4166;
+    --check-tick: #1A4F72;
+    --check-layout: #F2F8FD;
+    --check-default: #D0D5DD;
+    --check-disabled: #EAECF0;
+
+    --switch-primary: #1479AF;
+
+  }
+
+  .dark {
+    --white: #ffffff;
+    --black: #000000;
+    --text-headings: #333535;
+    --text-body: #191A1A;
+    --text-disabled: #EDEFF2;
+
+    --button-default: #1A5D89;
+    --button-hover: #1A4F72;
+    --button-focused: #1A4F72;
+    --button-disabled: #C4E1F3;
+
+    --border-layout: #A2A6A6;
+    --border-active: #00ABF1;
+
+    --input-header: #414444;
+    --input-filled: #333535;
+    --input-empty: #636968;
+    --input-disabled-fill: #F6F7F7;
+    --input-disabled: #636968;
+    --input-error: #DB004D;
+
+    --icon-default: #999FB5;
+
+    --check-border: #2A4166;
+    --check-tick: #1A4F72;
+    --check-layout: #F2F8FD;
+    --check-default: #D0D5DD;
+    --check-disabled: #EAECF0;
+    --switch-primary: #1479AF;
+
+  }
+}
