@@ -15,7 +15,7 @@ const MemoDes = ({
   const value = data?.find((memo) => memo.id === selectedId)
   console.log(value)
   return (
-    <div className=" flex justify-between flex-col col-span-8 border border-[#E3E4E4] p-4 rounded-s-sm min-h-72">
+    <div className=" flex justify-between flex-col col-span-8 border border-[#E3E4E4] p-4 rounded-s-sm min-h-80">
       <div className="flex gap-2 flex-col">
         <p className="text-heading-3 capitalize font-semibold">
           {value?.title}
