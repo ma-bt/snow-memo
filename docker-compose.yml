@@ -1,0 +1,18 @@
+services:
+  server:
+    image: ghcr.io/test/snow-memo:latest
+    container_name: snow-memo
+    restart: unless-stopped
+    env_file: .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    networks:
+      - snow-memo
+
+    ports:
+      - '3001:80'
+
+networks:
+  snow-memo:
