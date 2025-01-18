@@ -8,7 +8,7 @@ interface IMemoTitleProps {
 
 const MemoTitleList = ({ data, onMemoClick, selectedId }: IMemoTitleProps) => {
   return (
-    <div className="bg-slate-200  rounded-s-sm  min-h-33 ">
+    <div className="bg-slate-200  rounded-s-sm  min-h-36 ">
       {data?.length > 0 ? (
         data?.map((e, index) => {
           return (

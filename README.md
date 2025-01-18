@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# SnowMemo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and efficient memo app built with React, powered by **pnpm** for package management, and **Dockerized** for seamless deployment.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Create, edit, and delete memos.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Ensure you have the following installed:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [Node.js](https://nodejs.org/) (>=16)
+- [pnpm](https://pnpm.io/installation) (>=8)
+- [Docker](https://www.docker.com/get-started)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+
+   ```bash
+   git clone git@github.com:ma-bt/snow-memo.git
+   cd showmemo
+   ```
+
+2. Install dependencies using **pnpm**:
+
+   ```bash
+   pnpm install
+   ```
+
+3. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## Docker Setup
+
+### Using Docker Compose
+
+1. Build and run the app using Docker Compose:
+
+   ```bash
+   docker compose -f docker-compose.yml up -d --build
+   ```
+
+2. Open [http://localhost:3001](http://localhost:3001) in your browser.
+
+3. To stop the containers:
+   ```bash
+   docker-compose down
+   ```
+
+## Scripts
+
+- **Start Development Server**: `pnpm dev`
+- **Build for Production**: `pnpm build`
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b <feat-or-fix>/your-name/feature-name`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request.

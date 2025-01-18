@@ -28,8 +28,8 @@ const MemoForm = ({
 
   // Update form fields when a memo is selected for editing
   // todo: need to work on Update
+  const selectedMemo = data.find((item) => item.id === selectedId)
   useEffect(() => {
-    const selectedMemo = data.find((item) => item.id === selectedId)
     if (selectedMemo) {
       setTitle(selectedMemo.title)
       setMemo(selectedMemo.memo)
