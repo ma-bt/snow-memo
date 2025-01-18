@@ -5,7 +5,7 @@ import { Button } from "../../components/button/Button"
 const PageNotFound = () => {
   return (
     <div className="flex items-center justify-center pt-20">
-      <Link to="/dashboard/">
+      <Link to="/memo/">
         <Button
           variant="ghost"
           trailIcon={

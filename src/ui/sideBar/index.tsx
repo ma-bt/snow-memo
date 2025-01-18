@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { SideBarRoutes } from "./menuItems"
 import SideMenuTab from "./sideMenueTab"
 
-import MainLogo from "../../assets/resimatorLogo.png"
+import MainLogo from "../../assets/snowMemo.svg"
 
 const SideBar = () => {
   const matches = useMatches()
