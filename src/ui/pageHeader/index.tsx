@@ -1,4 +1,3 @@
-import { CircleFlag } from "react-circle-flags"
 import { Avatar } from "../../components/avatar"
 import { Button } from "../../components/button/Button"
 import Icon from "../../components/icon/Icon"
@@ -31,7 +30,6 @@ const PageHeader = () => {
             icon="BellRinging02"
             className="text-[#7E8299] h-[20px] w-[22px]"
           />
-          <CircleFlag countryCode="uk" className="w-6 h-6" />
           <div onClick={logout}>
             <Avatar
               type="circle"

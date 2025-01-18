@@ -1,15 +1,16 @@
-import MemoTitleList from "./memo-title-list"
-import MemoDes from "./memo-des"
 import { useState } from "react"
 import { Button } from "../../components/button/Button"
-import MemoForm from "./memo-form"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
-import { MemoData } from "./type"
+import MemoDes from "./memo-des"
+import MemoForm from "./memo-form"
+import MemoTitleList from "./memo-title-list"
 import Reminder from "./Remainder"
+import { MemoData } from "./type"
 
 const Memo = () => {
   const [memoId, setMemoId] = useState<string>("")
-  const [add, setAdd] = useState<boolean>(false);
+  const [add, setAdd] = useState<boolean>(false)
+  const [edit, setEdit] = useState<boolean>(false)
 
   const [memos, setMemos] = useLocalStorage<MemoData[]>("memos", [])
 
@@ -23,9 +24,8 @@ const Memo = () => {
     )
   }
 
-  
   const handleEditMemo = () => {
-    setAdd(true);
+    setEdit(true)
   }
 
   const onMemoClick = (e: string) => {
@@ -37,9 +37,14 @@ const Memo = () => {
     setMemoId("")
   }
 
+  const handleCancel = () => {
+    setAdd(false)
+    setEdit(false)
+  }
+
   return (
     <div className="relative w-full border-b border-[#E3E4E4] ">
-      <p className="text-heading-2 font-semibold  border-b border-[#E3E4E4] pb-2">
+      <p className="text-heading-1 font-semibold  border-b border-[#E3E4E4] pb-2">
         <span className="px-5 pb-1">MEMO</span>
       </p>
 
@@ -55,8 +60,14 @@ const Memo = () => {
             selectedId={memoId}
           />
         </div>
-        {add ? (
-          <MemoForm onSave={handleSaveMemo} data={memos} selectedId={memoId} />
+        {add || edit ? (
+          <MemoForm
+            onSave={handleSaveMemo}
+            data={memos}
+            selectedId={memoId}
+            edit={edit}
+            handleCancel={handleCancel}
+          />
         ) : (
           <MemoDes
             data={memos}
