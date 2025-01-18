@@ -16,9 +16,14 @@ const MemoDes = ({
   console.log(value)
   return (
     <div className=" flex justify-between flex-col col-span-8 border border-[#E3E4E4] p-4 rounded-s-sm min-h-72">
-      <div>{value?.memo}</div>
+      <div className="flex gap-2 flex-col">
+        <p className="text-heading-3 capitalize font-semibold">
+          {value?.title}
+        </p>
+        <p>{value?.memo}</p>
+      </div>
 
-      {value?.memo && (
+      {value?.memo ? (
         <div className="flex gap-5">
           <Button
             className="min-w-28 flex "
@@ -36,6 +41,10 @@ const MemoDes = ({
             Delete
           </Button>
         </div>
+      ) : (
+        <p className="flex justify-center h-full items-center font-medium">
+          Add Memo
+        </p>
       )}
     </div>
   )

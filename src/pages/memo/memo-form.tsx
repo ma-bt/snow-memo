@@ -1,17 +1,25 @@
+import { format } from "date-fns"
 import { FormEvent, useEffect, useState } from "react"
+import { Button } from "../../components/button/Button"
 import Input from "../../components/input/input"
 import { Textarea } from "../../components/input/text-area"
-import { Button } from "../../components/button/Button"
-import { format } from "date-fns"
 import { MemoData } from "./type"
 
 type MemoFormProps = {
   onSave: (data: MemoData) => void
   data: { id: string; title: string; memo: string; reminderDate?: string }[] // Memo list
   selectedId: string
+  edit: boolean
+  handleCancel: () => void
 }
 
-const MemoForm = ({ onSave, data, selectedId }: MemoFormProps) => {
+const MemoForm = ({
+  onSave,
+  data,
+  selectedId,
+  edit,
+  handleCancel,
+}: MemoFormProps) => {
   // States to handle memo fields
   const [title, setTitle] = useState<string>("")
   const [memo, setMemo] = useState<string>("")
@@ -62,7 +70,7 @@ const MemoForm = ({ onSave, data, selectedId }: MemoFormProps) => {
       setMemo("")
       setReminderDate("")
     } catch (err) {
-      console.error("An error occurred during submission:", err)
+      console.error("Error During Submission:", err)
       alert("Something went wrong. Please try again.")
     }
   }
@@ -96,6 +104,7 @@ const MemoForm = ({ onSave, data, selectedId }: MemoFormProps) => {
 
       {/* Reminder Date Input */}
       <Input
+        label="Remainder"
         size="sm"
         className="max-w-md"
         type="datetime-local"
@@ -104,8 +113,11 @@ const MemoForm = ({ onSave, data, selectedId }: MemoFormProps) => {
         placeholder="Reminder"
       />
 
-      {/* Submit Button */}
-      <Button type="submit">Submit</Button>
+      <div className="flex gap-5">
+        {/* Submit Button */}
+        <Button type="submit">Submit</Button>
+        {edit && <Button onClick={handleCancel}>Cancel</Button>}
+      </div>
     </form>
   )
 }

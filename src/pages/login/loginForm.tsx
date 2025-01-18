@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Button } from "../../components/button/Button"
-import Checkbox from "../../components/checkbox/checkbox"
 import Input from "../../components/input/input"
 import useAuth from "../../hooks/useAuth"
 
@@ -52,8 +51,7 @@ export function LoginForm() {
           Sign in to <span className="font-[700]">SnowMemo</span>
         </h2>
         <p className="text-[14px] text-input-header">
-          Please sign in to SnowMemo using email & password received in your
-          email.
+          Please sign in to SnowMemo using email & password
         </p>
       </div>
 
@@ -74,9 +72,8 @@ export function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
               errorText={error.password ? "Wrong password" : undefined}
             />
-            <div className="flex w-full justify-between">
-              <Checkbox label="Remember me" />
-              <h6 className="text-button-default">Forgot password</h6>
+            <div className="flex w-full justify-end">
+              <h6 className="text-button-default">Forgot password?</h6>
             </div>
           </div>
         </div>
