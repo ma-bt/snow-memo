@@ -1,3 +1,5 @@
+import { driver } from "driver.js"
+import "driver.js/dist/driver.css"
 import { useState } from "react"
 import { Button } from "../../components/button/Button"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
@@ -66,19 +68,91 @@ const Memo = () => {
     setEdit(false)
   }
 
+  const driverObj = driver({
+    showProgress: true,
+    steps: [
+      {
+        element: "#memoCompo",
+        popover: {
+          title: "Welcome to the Snow memo",
+          description: "Here ",
+          side: "bottom",
+          align: "start",
+        },
+      },
+      {
+        element: "#addButton",
+        popover: {
+          title: "Add Button",
+          description: "Click this button to Add Memo",
+          side: "right",
+          align: "start",
+        },
+      },
+      {
+        element: "#memoList",
+        popover: {
+          title: "Memo List",
+          description: "Here is the list of memo",
+          side: "right",
+          align: "start",
+        },
+      },
+
+      {
+        element: "#deleteButton",
+        popover: {
+          title: "Delete Button",
+          description: "click Here to delete all Memos",
+          side: "top",
+          align: "start",
+        },
+      },
+      {
+        element: "#memoForm",
+        popover: {
+          title: "Memo Form",
+          description: "Here you add your Memos",
+          side: "top",
+          align: "start",
+        },
+      },
+      {
+        element: "#cta-button",
+        popover: {
+          title: "Call to Action",
+          description: "Click here to get started!",
+          side: "top",
+          align: "start",
+        },
+      },
+    ],
+  })
+
+  const startTour = () => {
+    driverObj.drive()
+  }
   return (
-    <div className="relative w-full border-b border-[#E3E4E4] ">
-      <p className="text-heading-1 font-semibold  border-b border-[#E3E4E4] pb-2">
-        <span className="px-5 pb-1">MEMO</span>
-      </p>
+    <div id="memoCompo" className="relative w-full border-b border-[#E3E4E4] ">
+      <div className="flex justify-between px-4">
+        <p className="text-heading-1 font-semibold  border-b border-[#E3E4E4] pb-2">
+          <span className="px-5 pb-1">MEMO</span>
+        </p>
+
+        <Button onClick={startTour}>Start Tour</Button>
+      </div>
+      {/* <Button onClick={startTourHandler}>Start Tour</Button>
+
+      <TourGuide  ref={tourRef} /> */}
 
       <div className="grid  grid-cols-12  grid-flow-col gap-2  px-6 py-5">
         <div className="col-span-4 flex flex-col gap-2 ">
           <div className="flex gap-3">
-            <Button size="sm" width="full" onClick={onAddClick}>
+            <Button id="addButton" size="sm" width="full" onClick={onAddClick}>
               + ADD
             </Button>
             <Button
+              id="deleteButton"
               variant="secondary"
               shade="primary"
               size="sm"
