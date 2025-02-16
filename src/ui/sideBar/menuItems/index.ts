@@ -14,7 +14,7 @@ export const SideBarRoutes: ISideBarRoutes[] = [
         isHref: false,
         icon: "StickerSquare",
       },
-      
+
       {
         name: "Tab2",
         path: "/memo/tab4",
