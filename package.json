@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "lint:fix": " pnpm prettier:fix && pnpm eslint:fix",
     "prepare": "husky",
+    "typecheck": "tsc --noEmit",
     "eslint": "eslint src",
     "eslint:fix": "eslint --fix src",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
@@ -57,7 +58,7 @@
     "prettier": "^3.3.3",
     "sass": "^1.72.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "~5.6.2",
+    "typescript": "~5.6.3",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.6"
   },
