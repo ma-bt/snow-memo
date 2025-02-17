@@ -8,114 +8,114 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router"
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
-import { Route as MemoMemoLayoutImport } from './routes/memo/_memo-layout'
-import { Route as AuthAuthAlyoutImport } from './routes/auth/_auth-alyout'
-import { Route as MemoMemoLayoutIndexImport } from './routes/memo/_memo-layout/index'
-import { Route as AuthAuthLayoutLoginImport } from './routes/auth/_auth-layout/login'
+import { Route as rootRoute } from "./routes/__root"
+import { Route as IndexImport } from "./routes/index"
+import { Route as MemoMemoLayoutImport } from "./routes/memo/_memo-layout"
+import { Route as AuthAuthAlyoutImport } from "./routes/auth/_auth-alyout"
+import { Route as MemoMemoLayoutIndexImport } from "./routes/memo/_memo-layout/index"
+import { Route as AuthAuthLayoutLoginImport } from "./routes/auth/_auth-layout/login"
 
 // Create Virtual Routes
 
-const MemoImport = createFileRoute('/memo')()
-const AuthImport = createFileRoute('/auth')()
+const MemoImport = createFileRoute("/memo")()
+const AuthImport = createFileRoute("/auth")()
 
 // Create/Update Routes
 
 const MemoRoute = MemoImport.update({
-  id: '/memo',
-  path: '/memo',
+  id: "/memo",
+  path: "/memo",
   getParentRoute: () => rootRoute,
 } as any)
 
 const AuthRoute = AuthImport.update({
-  id: '/auth',
-  path: '/auth',
+  id: "/auth",
+  path: "/auth",
   getParentRoute: () => rootRoute,
 } as any)
 
 const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRoute,
 } as any)
 
 const MemoMemoLayoutRoute = MemoMemoLayoutImport.update({
-  id: '/_memo-layout',
+  id: "/_memo-layout",
   getParentRoute: () => MemoRoute,
 } as any)
 
 const AuthAuthAlyoutRoute = AuthAuthAlyoutImport.update({
-  id: '/_auth-alyout',
+  id: "/_auth-alyout",
   getParentRoute: () => AuthRoute,
 } as any)
 
 const MemoMemoLayoutIndexRoute = MemoMemoLayoutIndexImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => MemoMemoLayoutRoute,
 } as any)
 
 const AuthAuthLayoutLoginRoute = AuthAuthLayoutLoginImport.update({
-  id: '/_auth-layout/login',
-  path: '/login',
+  id: "/_auth-layout/login",
+  path: "/login",
   getParentRoute: () => AuthRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
+    "/": {
+      id: "/"
+      path: "/"
+      fullPath: "/"
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
+    "/auth": {
+      id: "/auth"
+      path: "/auth"
+      fullPath: "/auth"
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
-    '/auth/_auth-alyout': {
-      id: '/auth/_auth-alyout'
-      path: '/auth'
-      fullPath: '/auth'
+    "/auth/_auth-alyout": {
+      id: "/auth/_auth-alyout"
+      path: "/auth"
+      fullPath: "/auth"
       preLoaderRoute: typeof AuthAuthAlyoutImport
       parentRoute: typeof AuthRoute
     }
-    '/memo': {
-      id: '/memo'
-      path: '/memo'
-      fullPath: '/memo'
+    "/memo": {
+      id: "/memo"
+      path: "/memo"
+      fullPath: "/memo"
       preLoaderRoute: typeof MemoImport
       parentRoute: typeof rootRoute
     }
-    '/memo/_memo-layout': {
-      id: '/memo/_memo-layout'
-      path: '/memo'
-      fullPath: '/memo'
+    "/memo/_memo-layout": {
+      id: "/memo/_memo-layout"
+      path: "/memo"
+      fullPath: "/memo"
       preLoaderRoute: typeof MemoMemoLayoutImport
       parentRoute: typeof MemoRoute
     }
-    '/auth/_auth-layout/login': {
-      id: '/auth/_auth-layout/login'
-      path: '/login'
-      fullPath: '/auth/login'
+    "/auth/_auth-layout/login": {
+      id: "/auth/_auth-layout/login"
+      path: "/login"
+      fullPath: "/auth/login"
       preLoaderRoute: typeof AuthAuthLayoutLoginImport
       parentRoute: typeof AuthImport
     }
-    '/memo/_memo-layout/': {
-      id: '/memo/_memo-layout/'
-      path: '/'
-      fullPath: '/memo/'
+    "/memo/_memo-layout/": {
+      id: "/memo/_memo-layout/"
+      path: "/"
+      fullPath: "/memo/"
       preLoaderRoute: typeof MemoMemoLayoutIndexImport
       parentRoute: typeof MemoMemoLayoutImport
     }
@@ -159,45 +159,45 @@ const MemoRouteChildren: MemoRouteChildren = {
 const MemoRouteWithChildren = MemoRoute._addFileChildren(MemoRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/auth': typeof AuthAuthAlyoutRoute
-  '/memo': typeof MemoMemoLayoutRouteWithChildren
-  '/auth/login': typeof AuthAuthLayoutLoginRoute
-  '/memo/': typeof MemoMemoLayoutIndexRoute
+  "/": typeof IndexRoute
+  "/auth": typeof AuthAuthAlyoutRoute
+  "/memo": typeof MemoMemoLayoutRouteWithChildren
+  "/auth/login": typeof AuthAuthLayoutLoginRoute
+  "/memo/": typeof MemoMemoLayoutIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/auth': typeof AuthAuthAlyoutRoute
-  '/memo': typeof MemoMemoLayoutIndexRoute
-  '/auth/login': typeof AuthAuthLayoutLoginRoute
+  "/": typeof IndexRoute
+  "/auth": typeof AuthAuthAlyoutRoute
+  "/memo": typeof MemoMemoLayoutIndexRoute
+  "/auth/login": typeof AuthAuthLayoutLoginRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/auth': typeof AuthRouteWithChildren
-  '/auth/_auth-alyout': typeof AuthAuthAlyoutRoute
-  '/memo': typeof MemoRouteWithChildren
-  '/memo/_memo-layout': typeof MemoMemoLayoutRouteWithChildren
-  '/auth/_auth-layout/login': typeof AuthAuthLayoutLoginRoute
-  '/memo/_memo-layout/': typeof MemoMemoLayoutIndexRoute
+  "/": typeof IndexRoute
+  "/auth": typeof AuthRouteWithChildren
+  "/auth/_auth-alyout": typeof AuthAuthAlyoutRoute
+  "/memo": typeof MemoRouteWithChildren
+  "/memo/_memo-layout": typeof MemoMemoLayoutRouteWithChildren
+  "/auth/_auth-layout/login": typeof AuthAuthLayoutLoginRoute
+  "/memo/_memo-layout/": typeof MemoMemoLayoutIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/memo' | '/auth/login' | '/memo/'
+  fullPaths: "/" | "/auth" | "/memo" | "/auth/login" | "/memo/"
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/memo' | '/auth/login'
+  to: "/" | "/auth" | "/memo" | "/auth/login"
   id:
-    | '__root__'
-    | '/'
-    | '/auth'
-    | '/auth/_auth-alyout'
-    | '/memo'
-    | '/memo/_memo-layout'
-    | '/auth/_auth-layout/login'
-    | '/memo/_memo-layout/'
+    | "__root__"
+    | "/"
+    | "/auth"
+    | "/auth/_auth-alyout"
+    | "/memo"
+    | "/memo/_memo-layout"
+    | "/auth/_auth-layout/login"
+    | "/memo/_memo-layout/"
   fileRoutesById: FileRoutesById
 }
 

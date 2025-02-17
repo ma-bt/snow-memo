@@ -77,6 +77,7 @@ const MemoForm = ({
 
   return (
     <form
+      id="memoForm"
       onSubmit={handleSubmit}
       className="flex flex-col gap-4 col-span-8 border border-[#E3E4E4] p-4 rounded-s-sm"
     >

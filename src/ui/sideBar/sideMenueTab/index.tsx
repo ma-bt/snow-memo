@@ -29,7 +29,7 @@ const SideMenuTab = ({ path, icon, active, isHref }: ITab) => (
       <Icon
         icon={icon as IconType}
         className={cn("stroke-input-header group-hover:stroke-white", {
-          "stroke-white": active
+          "stroke-white": active,
         })}
         size="md"
       />
